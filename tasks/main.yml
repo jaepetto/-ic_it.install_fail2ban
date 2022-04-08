@@ -2,13 +2,13 @@
 # tasks file for ic_it.install_fail2ban
 - name: installs fail2ban # and sendmail
   apt:
-    name: "{{ item }}"
+    pkg:
+    - fail2ban
+#   - sendmail
     state: latest
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-  - fail2ban
-  # - sendmail
+
 
 - name: override the base fail2ban configuration with a local file
   copy:
